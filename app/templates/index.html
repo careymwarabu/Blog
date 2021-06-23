@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container bg-danger">
+    <div class="row">
+        <div class="col-md-12">
+            <hr>
+            <blockquote class="blockquote text-center">
+                <p class="mb-0">{{quote.quote}}</p>
+                <footer class="blockquote-footer"><cite>{{quote.author}}</cite></footer>
+              </blockquote>
+        </div>
+    </div>
+
+        <div class="text-center">
+            <h3>A blog is a great way to figure out what you want to do with yourself because writing regularly is a path to self-discovery.
+            </h3>
+            {% if current_user.is_authenticated %}
+            <h4>Let us know your thoughts! <a href="{{url_for('main.add_blog')}}">Add Blog</a></p>
+            {% else %}
+            <a href="{{url_for('auth.login')}}">Sign Up</a></p>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
